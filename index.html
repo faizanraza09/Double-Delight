@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Baking Video</title>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Merriweather:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lora">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <nav class="navbar">
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#bloopers">Bloopers</a></li>
+        </ul>
+    </nav>
+
+    <section id="home" class="home-section">
+        <h2 >Welcome to Double Delight!</h2>
+        <div class="video-container">
+            <div id="youtubePlayer"></div> 
+            <!-- Quiz Popups -->
+            <div id="quiz1Popup" class="popup hidden">
+                <p>What temperature should you preheat the oven?</p>
+                <button onclick="handleQuiz('100°C')">100°C</button>
+                <button onclick="handleQuiz('180°C')">180°C</button>
+            </div>
+            <div id="quiz2Popup" class="popup hidden">
+                <p>What temperature to bake the cookies at?</p>
+                <button onclick="handleQuiz('170°C')">170°C</button>
+                <button onclick="handleQuiz('250°C')">250°C</button>
+            </div>
+            <!-- Story Popups -->
+            <div id="story1Popup" class="popup hidden">
+                <p>Do you want to bake cupcakes or cookies?</p>
+                <button onclick="handleChoice('Cupcakes')">Cupcakes</button>
+                <button onclick="handleChoice('Cookies')">Cookies</button>
+            </div>
+            <div id="story2Popup" class="popup hidden">
+                <p>What color of frosting do you want?</p>
+                <button onclick="handleChoice('Yellow')">Yellow</button>
+                <button onclick="handleChoice('Red')">Red</button>
+            </div>
+            <div id="story3Popup" class="popup hidden">
+                <p>Do you want sprinkles?</p>
+                <button onclick="handleChoice('With Sprinkles')">Yes</button>
+                <button onclick="handleChoice('No Sprinkles')">No</button>
+            </div>
+            <div id="story4Popup" class="popup hidden">
+                <p>Which Chocolate do you want on the cookies?</p>
+                <button onclick="handleChoice('White Chocolate')">White Chocolate</button>
+                <button onclick="handleChoice('Milk Chocolate')">Milk Chocolate</button>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="about-section">
+        <h2>About Us</h2>
+        <div class="about-container">
+        <p>Welcome to Double Delight, where we merge passion with flavor to create unforgettable baking experiences!
+        At Double Delight, we believe that baking is more than just a culinary practice—it's a journey into a world of joy and creativity. 
+        Our mission is to inspire both novice and seasoned bakers with our  engaging content. From the heavenly aroma of freshly baked cupcakes
+        to the artful finesse of a perfectly frosted cupcake, our content is designed to empower you to explore new techniques and flavors. 
+        Every bite promises double the delight—twice the flavor, twice the happiness!</p>
+        </div>
+
+    </section>
+
+    <section id="bloopers" class="bloopers-section">
+        <h2>Bloopers</h2>
+        <div class="video-container">
+            <iframe id="bloopersPlayer" src="https://www.youtube.com/embed/FlmrPmoHRxE?rel=0&showinfo=0&controls=0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+    </section>
+
+    <script src="https://www.youtube.com/iframe_api"></script>
+    <script src="script2.js"></script>
+    
+
+</body>
+
+</html>
