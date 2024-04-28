@@ -4,8 +4,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Interactive Baking Video</title>
-    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Merriweather:wght@300;400;700&display=swap" rel="stylesheet">
+    <title>Double Delight</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Merriweather:wght@300;400;700&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lora">
     <link rel="stylesheet" href="style.css">
 </head>
@@ -20,9 +22,9 @@
     </nav>
 
     <section id="home" class="home-section">
-        <h2 >Welcome to Double Delight!</h2>
+        <h2>Welcome to Double Delight!</h2>
         <div class="video-container">
-            <div id="youtubePlayer"></div> 
+            <div id="youtubePlayer"></div>
             <!-- Quiz Popups -->
             <div id="quiz1Popup" class="popup hidden">
                 <p>What temperature should you preheat the oven?</p>
@@ -55,17 +57,25 @@
                 <button onclick="handleChoice('White Chocolate')">White Chocolate</button>
                 <button onclick="handleChoice('Milk Chocolate')">Milk Chocolate</button>
             </div>
+            <div id="story5Popup" class="popup hidden">
+                <p>Would you like to watch the video again?</p>
+                <button onclick="handleChoice('Yes')">Yes</button>
+                <button onclick="handleChoice('Yes')">Definitely Yes</button>
+            </div>
         </div>
     </section>
 
     <section id="about" class="about-section">
         <h2>About Us</h2>
         <div class="about-container">
-        <p>Welcome to Double Delight, where we merge passion with flavor to create unforgettable baking experiences!
-        At Double Delight, we believe that baking is more than just a culinary practice—it's a journey into a world of joy and creativity. 
-        Our mission is to inspire both novice and seasoned bakers with our  engaging content. From the heavenly aroma of freshly baked cupcakes
-        to the artful finesse of a perfectly frosted cupcake, our content is designed to empower you to explore new techniques and flavors. 
-        Every bite promises double the delight—twice the flavor, twice the happiness!</p>
+            <p>Welcome to Double Delight, where we merge passion with flavor to create unforgettable baking experiences!
+                At Double Delight, we believe that baking is more than just a culinary practice—it's a journey into a
+                world of joy and creativity.
+                Our mission is to inspire both novice and seasoned bakers with our engaging content. From the heavenly
+                aroma of freshly baked cupcakes
+                to the artful finesse of a perfectly frosted cupcake, our content is designed to empower you to explore
+                new techniques and flavors.
+                Every bite promises double the delight—twice the flavor, twice the happiness!</p>
         </div>
 
     </section>
@@ -73,13 +83,15 @@
     <section id="bloopers" class="bloopers-section">
         <h2>Bloopers</h2>
         <div class="video-container">
-            <iframe id="bloopersPlayer" src="https://www.youtube.com/embed/FlmrPmoHRxE?rel=0&showinfo=0&controls=0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            <iframe id="bloopersPlayer" src="https://www.youtube.com/embed/FlmrPmoHRxE?rel=0&showinfo=0&controls=0"
+                frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen></iframe>
         </div>
     </section>
 
     <script src="https://www.youtube.com/iframe_api"></script>
     <script src="script.js"></script>
-    
+
 
 </body>
 

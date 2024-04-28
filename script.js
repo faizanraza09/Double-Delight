@@ -7,10 +7,10 @@ const yellow_frosting_sprinkles = 'D8yT0BGv-xQ';
 const yellow_frosting_no_sprinkles = 'aYYrNmGvHEA';
 const red_frosting_sprinkles = 'q0Wq1eIRlg8';
 const red_frosting_no_sprinkles = 'QbvtpwSjTGE';
-const cookies='lkhv42bjcbM';
-const cookies_white_chocolate='GmsgtTyM9mc';
-const cookies_milk_chocolate='yC5jYEbNQeY';
-const bloopers='FlmrPmoHRxE';
+const cookies = 'lkhv42bjcbM';
+const cookies_white_chocolate = 'GmsgtTyM9mc';
+const cookies_milk_chocolate = 'yC5jYEbNQeY';
+const bloopers = 'FlmrPmoHRxE';
 
 let frostingChoice;
 let checkPopupsInterval;
@@ -19,13 +19,17 @@ const popups = document.querySelectorAll('.popup');
 popups.forEach(popup => popup.classList.add('hidden'));
 
 const popupSchedules = {
-    'LFVo3sFJ3yA': [{time: 18, popupIndex: 2}],
-    'PhCO_uJ_pz4': [{time: 81, popupIndex: 0}, {time: 168, popupIndex: 3}],
-    'lkhv42bjcbM': [{time: 152, popupIndex: 5}],
-    'GKFAQTHhAsY': [{time: 34, popupIndex: 4}],
-    'fl6M1oSj9y8': [{time: 28, popupIndex: 4}],
-    'GmsgtTyM9mc': [{time: 41, popupIndex: 1}],
-    'yC5jYEbNQeY': [{time: 41, popupIndex: 1}]
+    'LFVo3sFJ3yA': [{ time: 18, popupIndex: 2 }],
+    'PhCO_uJ_pz4': [{ time: 81, popupIndex: 0 }, { time: 168, popupIndex: 3 }],
+    'lkhv42bjcbM': [{ time: 152, popupIndex: 5 }],
+    'GKFAQTHhAsY': [{ time: 34, popupIndex: 4 }],
+    'fl6M1oSj9y8': [{ time: 26, popupIndex: 4 }],
+    'GmsgtTyM9mc': [{ time: 41, popupIndex: 1 }, { time: 87, popupIndex: 6 }],
+    'yC5jYEbNQeY': [{ time: 41, popupIndex: 1 }, { time: 85, popupIndex: 6 }],
+    'QbvtpwSjTGE': [{ time: 3, popupIndex: 6 }],
+    'q0Wq1eIRlg8': [{ time: 10, popupIndex: 6 }],
+    'aYYrNmGvHEA': [{ time: 3, popupIndex: 6 }],
+    'D8yT0BGv-xQ': [{ time: 10, popupIndex: 6 }],
 };
 
 
@@ -37,18 +41,18 @@ let currentVideoId; // The current video ID from the YouTube URL
 
 function onYouTubeIframeAPIReady() {
     player = new YT.Player('youtubePlayer', {
-        height: '1080',  
-        width: '1920',  
-        videoId: 'ECf85Vdf-a8',  
+        height: '1080',
+        width: '1920',
+        videoId: 'ECf85Vdf-a8',
         playerVars: {
             'autoplay': 1,
             'enablejsapi': 1,
             'modestbranding': 1,
             'autohide': 1,
-            'iv_load_policy':3,
-            'rel':0,
-            'showinfo':0,
-            'controls':0
+            'iv_load_policy': 3,
+            'rel': 0,
+            'showinfo': 0,
+            'controls': 1
         },
         events: {
             'onReady': onPlayerReady,
@@ -59,7 +63,7 @@ function onYouTubeIframeAPIReady() {
 
 function onPlayerReady(event) {
     event.target.playVideo();
-    loadVideoSegment(intro);  
+    loadVideoSegment(intro);
 }
 
 function onPlayerStateChange(event) {
@@ -101,7 +105,9 @@ function loadVideoSegment(videoId) {
     console.log('Loading video:', videoId);
     currentVideoId = videoId;
     player.loadVideoById(videoId); // Cue the video by ID
-    popupEvents = popupSchedules[videoId] || [];
+    console.log('Popup schedules:', popupSchedules)
+    console.log('Video ID:', videoId)
+    popupEvents = popupSchedules[videoId].slice() || [];
     console.log('Popup events:', popupEvents);
 
     player.playVideo();
@@ -116,17 +122,17 @@ function handleChoice(choice) {
     // Map the choice to a video ID
     switch (choice) {
         case 'Cupcakes':
-            videoId = cupcakes; 
+            videoId = cupcakes;
             break;
         case 'Cookies':
-            videoId = cookies; 
+            videoId = cookies;
             break;
         case 'Yellow':
-            videoId = yellow_frosting; 
+            videoId = yellow_frosting;
             frostingChoice = 'yellow_frosting';
             break;
         case 'Red':
-            videoId = red_frosting; 
+            videoId = red_frosting;
             frostingChoice = 'red_frosting';
             break;
         case 'With Sprinkles':
@@ -144,13 +150,13 @@ function handleChoice(choice) {
             };
             break;
         case 'White Chocolate':
-            videoId = cookies_white_chocolate; 
+            videoId = cookies_white_chocolate;
             break;
         case 'Milk Chocolate':
-            videoId = cookies_milk_chocolate; 
+            videoId = cookies_milk_chocolate;
             break;
         default:
-            videoId = intro; 
+            videoId = intro;
             break;
     }
     hidePopup(document.querySelector('.visible'));
