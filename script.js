@@ -125,7 +125,7 @@ function handleChoice(choice) {
             videoId = yellow_frosting; 
             frostingChoice = 'yellow_frosting';
             break;
-        case 'Pink':
+        case 'Red':
             videoId = red_frosting; 
             frostingChoice = 'red_frosting';
             break;
